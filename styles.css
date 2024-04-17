@@ -1,0 +1,44 @@
+body {
+    margin: 0 auto;
+    background: linear-gradient(0deg, blue, green, blue) no-repeat;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, transparent, green, transparent);
+    height: 100vh;
+}
+
+.interface-container__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    width: 600px;
+    margin-top: 40px;
+}
+
+.interface-container__form > input {
+    width: 200px;
+    margin-top: 10px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.interface-container__form > button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 3px solid darkblue;
+    margin: 20px 0px 20px 0px;
+}
+
+.interface-container__list {
+    width: 600px;
+    background: red;
+}
+
