@@ -1,6 +1,19 @@
+:root {
+    /* --background: #D8D5DB;
+    --background2: #ADACB5; */
+    --background: #0F0E1B;
+    --background2: #0C0721;
+    --fill: #2D3142;
+    --fill2: #6F84A1;
+    --input: #EAE8FF;
+    --border: #B0D7FF;
+    --glow: #B7DBFF;
+    --active: #FFE66D;
+}
+
 body {
     margin: 0 auto;
-    background: linear-gradient(0deg, blue, green, blue) no-repeat;
+    background: linear-gradient(0deg, var(--background), var(--background2), var(--background)) no-repeat;
 }
 
 main {
@@ -8,7 +21,7 @@ main {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(90deg, transparent, green, transparent);
+    background: linear-gradient(90deg, transparent, var(--background), transparent);
     height: 100vh;
 }
 
@@ -17,11 +30,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 255, 0.445), transparent);
+    background: linear-gradient(90deg, var(--fill2), var(--fill), var(--fill2));
     width: 600px;
     margin-top: 40px;
-    border: 2px solid black;
-    border-radius: 6px;
+    border: 2px solid var(--border);
+    box-shadow: 0 0 50px var(--glow);
+    border-radius: 6px 6px 0px 0px;
 }
 
 .interface-container__form > input {
@@ -29,18 +43,103 @@ main {
     margin-top: 10px;
     height: 20px;
     border-radius: 4px;
+    background: var(--input);
 }
 
 .interface-container__form > button {
     width: 150px;
     height: 30px;
     border-radius: 5px;
-    border: 3px solid darkblue;
+    border: 2px solid var(--border);
+    background: linear-gradient(0deg, var(--fill2), var(--fill));
+    color: var(--input);
     margin: 20px 0px 20px 0px;
+    transition: background 0.2s ease-in;
+}
+
+.interface-container__form > button:active {
+    background: var(--active);
+    color: var(--fill);
+    border: 2px solid var(--fill2);
+}
+
+.interface-container__titles {
+    display: flex;
+    width: 600px;
+    align-items: flex-start;
+    background: var(--fill2);
+    border-left: 2px solid var(--border);
+    border-right: 2px solid var(--border);
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.interface-container__titles > div {
+    width: 25%;
+    outline: 1px solid var(--border);
+    padding-left: 10px;
+    color: var(--input);
 }
 
 .interface-container__list {
     width: 600px;
-    background: red;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    background: var(--fill2);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 50px var(--glow);
 }
 
+.interface-container__list > li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(90deg, transparent, var(--fill), transparent);
+    animation: fade-in 0.2s ease-in 1;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.interface-container__list > li > div {
+    /* background: linear-gradient(90deg, transparent, var(--fill2), transparent); */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    animation: fade-in 0.4s ease-in 1;
+}
+
+.interface-container__list > li > div > div {
+    width: 25%;
+    /* background: linear-gradient(90deg,transparent, green, transparent); */
+    outline: 1px solid var(--border);
+    color: var(--input);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: fade-in 0.8s ease-in 1;
+}
+
+.interface-container__list > li:last-child > div > div:first-child {
+    border-radius: 0 0 0 10px;
+    overflow: hidden;
+}
+
+.interface-container__list > li:last-child > div > div:last-child {
+    border-radius: 0 0 10px 0;
+    overflow: hidden;
+}
+
+.interface-container > select {
+    position: absolute;
+    top: 235px;
+    left: calc(50% + 130px);
+}

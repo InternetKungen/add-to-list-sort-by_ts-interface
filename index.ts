@@ -70,7 +70,31 @@ function renderList() {
     // Skapa och lägg till nya listelement för varje person i arrayen
     persons.forEach(person => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${person.firstName} ${person.lastName} (${person.epost}) - ${person.alias}`;
+
+        // Skapa en flexbox-container för varje listelement
+        const flexContainer = document.createElement('div');
+
+        // Skapa och lägg till element för varje del av personen
+        const firstNameElement = document.createElement('div');
+        firstNameElement.textContent = person.firstName;
+        flexContainer.appendChild(firstNameElement);
+
+        const lastNameElement = document.createElement('div');
+        lastNameElement.textContent = person.lastName;
+        flexContainer.appendChild(lastNameElement);
+
+        const emailElement = document.createElement('div');
+        emailElement.textContent = person.epost;
+        flexContainer.appendChild(emailElement);
+
+        const aliasElement = document.createElement('div');
+        aliasElement.textContent = person.alias;
+        flexContainer.appendChild(aliasElement);
+
+        // Lägg till flexbox-container i listelementet
+        listItem.appendChild(flexContainer);
+
+        // Lägg till listelementet i listan
         listContainer.appendChild(listItem);
     });
 }
